@@ -3,7 +3,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class boj_24416 {
+public class Boj_24416 {
 	static int recursionCount;
 	static int dpCount;
 
