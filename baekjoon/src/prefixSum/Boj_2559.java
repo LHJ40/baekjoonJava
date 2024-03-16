@@ -12,25 +12,26 @@ public class Boj_2559 {
 	StringTokenizer st= new StringTokenizer(br.readLine());
 	
 	int N=Integer.parseInt(st.nextToken());
-	int K=Integer.parseInt(st.nextToken());
-	int prefix[]=new int[N+1];
+	int M=Integer.parseInt(st.nextToken());
+	long prefix[]=new long[N+1];
+	long rest[]=new long[M];
 	
 	 st= new StringTokenizer(br.readLine());
 	 
+	 long sum=0;
 	 for(int i=1; i<=N; i++) {
-		 prefix[i]=prefix[i-1]+Integer.parseInt(st.nextToken());	 
-	 }
-	 
-	 int b=0;
-	 int Max=Integer.MIN_VALUE;
-	 for(int i=K; i<=N; i++) {
-		 if(prefix[i]-prefix[i-K]>Max) {
-			 Max=prefix[i]-prefix[i-K];
-			 
+		 prefix[i]=prefix[i-1]+Integer.parseInt(st.nextToken());	
+		 rest[(int)(prefix[i]%M)]++;
+		 if((int)(prefix[i]%M)==0) {		 
+			 sum++;
 		 }	 
 	 }
-	 System.out.println(Max);
-	 
+	 for(int i=0; i<M; i++) {
+		 sum+=rest[i]*(rest[i]-1)/2; 
+		 
+	 }
+	 System.out.println(sum);
+	
 	}
 
 }
